@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Fenetre extends JFrame {
+public class Fenetre extends JFrame implements ActionListener {
 
     Toolkit tk = Toolkit.getDefaultToolkit();
     Dimension dimScreen = tk.getScreenSize();
@@ -100,6 +100,17 @@ public class Fenetre extends JFrame {
         itemLargeur.setToolTipText("Modifie la largeur");
         itemHauteur.setToolTipText("Modifie la hauteur");
 
+        //ajouts des listeners
+        itemLargeur.addActionListener(this);
+
         this.setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == itemLargeur) {
+            FenDialog largeurDialog = new FenDialog();
+            largeurDialog.setTitle("Choisir Largeurs");
+        }
+
     }
 }
