@@ -1,6 +1,7 @@
 package projet13;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class Fenetre extends JFrame {
@@ -69,6 +70,35 @@ public class Fenetre extends JFrame {
         toolBar.add(boutonJaune);
         toolBar.add(boutonBleu);
         container.add(toolBar, BorderLayout.NORTH);
+
+        //ajouts des accélérateurs
+        itemRectangle.setMnemonic('R');
+        itemRectangle.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));
+        itemOvale.setMnemonic('O');
+        itemOvale.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
+        itemTriangle.setMnemonic('T');
+        itemTriangle.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, InputEvent.CTRL_MASK));
+        itemLargeur.setMnemonic('L');
+        itemLargeur.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, InputEvent.CTRL_MASK));
+        itemHauteur.setMnemonic('H');
+        itemHauteur.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.CTRL_MASK));
+
+        //ajouts des infosbulles
+        itemBlanc.setToolTipText("Fond Blanc");
+        itemRouge.setToolTipText("Fond Rouge");
+        itemVert.setToolTipText("Fond Vert");
+        itemJaune.setToolTipText("Fond Jaune");
+        itemBleu.setToolTipText("Fond Bleu");
+        boutonBlanc.setToolTipText("Fond Blanc");
+        boutonRouge.setToolTipText("Fond Rouge");
+        boutonVert.setToolTipText("Fond Vert");
+        boutonJaune.setToolTipText("Fond Jaune");
+        boutonBleu.setToolTipText("Fond Bleu");
+        itemRectangle.setToolTipText("Dessine un rectangle");
+        itemOvale.setToolTipText("Dessine un ovale");
+        itemTriangle.setToolTipText("Dessine un triangle");
+        itemLargeur.setToolTipText("Modifie la largeur");
+        itemHauteur.setToolTipText("Modifie la hauteur");
 
         this.setVisible(true);
     }
