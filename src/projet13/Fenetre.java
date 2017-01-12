@@ -7,8 +7,6 @@ import javax.swing.*;
 public class Fenetre extends JFrame implements ActionListener {
 
     //variables
-    
-
     //récupération taille écran
     Toolkit tk = Toolkit.getDefaultToolkit();
     Dimension dimScreen = tk.getScreenSize();
@@ -160,7 +158,7 @@ public class Fenetre extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-
+        // Changements de couleurs
         if (source == itemBlanc || source == boutonBlanc) {
             container.setBackground(Color.WHITE);
         }
@@ -177,6 +175,7 @@ public class Fenetre extends JFrame implements ActionListener {
             container.setBackground(Color.BLUE);
         }
 
+        // false/true pour les dessins
         if (source == itemOvale) {
             //draw oval
         }
@@ -188,12 +187,14 @@ public class Fenetre extends JFrame implements ActionListener {
         }
 
         if (source == itemLargeur) {
+            // Fenetre avec champ largeur
             String newLarg = JOptionPane.showInputDialog(this, "Largeur");
-            //container.setLargeur(Integer.parseInt(ch));
+            //container.setLargeur(Integer.parseInt(newLarg));
         }
         if (source == itemHauteur) {
+            // Fenetre avec champ hauteur
             String newHaut = JOptionPane.showInputDialog(this, "Largeur");
-            //container.setLargeur(Integer.parseInt(ch));
+            //container.setLargeur(Integer.parseInt(newHaut));
         }
 
     }
