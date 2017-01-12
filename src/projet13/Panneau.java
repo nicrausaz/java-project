@@ -5,12 +5,12 @@ import javax.swing.*;
 
 public class Panneau extends JPanel {
 
-    private int largeur = 500;
-    private int hauteur = 200;
+    public int largeur = 500;
+    public int hauteur = 200;
 
-    private Boolean rectangle = false;
-    private Boolean ovale = false;
-    private Boolean triangle = false;
+    public Boolean rectangle = false;
+    public Boolean ovale = false;
+    public Boolean triangle = false;
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -18,18 +18,20 @@ public class Panneau extends JPanel {
         //centre fenetre
         int winX = this.getWidth() / 2;
         int winY = this.getHeight() / 2;
-        
-        if(rectangle){
-            
+
+        if (rectangle) {
+            g.drawRect(winX - (largeur / 2), winY - (hauteur / 2), largeur, hauteur);
         }
-        
-        if(ovale){
+
+        if (ovale) {
             g.drawOval(winX - (largeur / 2), winY - (hauteur / 2), largeur, hauteur);
         }
-        
-        if(triangle){
-            
-        }
-    }
 
+        if (triangle) {
+            int x[] = {winX - (largeur / 2), winX, winX + (largeur / 2)};
+            int y[] = {winY + (hauteur / 2), winY - (hauteur / 2), winY + (hauteur / 2)};
+            g.drawPolygon(x, y, 3);
+        }
+        repaint();
+    }
 }

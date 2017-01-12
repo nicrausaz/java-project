@@ -177,24 +177,24 @@ public class Fenetre extends JFrame implements ActionListener {
 
         // false/true pour les dessins
         if (source == itemOvale) {
-            //draw oval
+            container.ovale = true;
         }
         if (source == itemRectangle) {
-            //draw rect
+            container.rectangle = true;
         }
         if (source == itemTriangle) {
-            //draw triangle
+            container.triangle = true;
         }
 
         if (source == itemLargeur) {
             // Fenetre avec champ largeur
             String newLarg = JOptionPane.showInputDialog(this, "Largeur");
-            //container.setLargeur(Integer.parseInt(newLarg));
+            container.largeur = Integer.parseInt(newLarg);
         }
         if (source == itemHauteur) {
             // Fenetre avec champ hauteur
             String newHaut = JOptionPane.showInputDialog(this, "Largeur");
-            //container.setLargeur(Integer.parseInt(newHaut));
+            container.hauteur = Integer.parseInt(newHaut);
         }
 
     }
