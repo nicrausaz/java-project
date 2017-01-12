@@ -4,7 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Fenetre extends JFrame {
+public class Fenetre extends JFrame implements ActionListener {
+
+    //variables
+    
 
     //récupération taille écran
     Toolkit tk = Toolkit.getDefaultToolkit();
@@ -57,13 +60,15 @@ public class Fenetre extends JFrame {
 
         //appel fonction ajout accélérateur
         setAccAndMnemo();
-        
+
         // appel fonction ajout des infos bulles
         setTooltips();
-        
 
         //appel fonction ajout menuBar
         setAndAddToolBar();
+
+        //ajout des listeners
+        setListeners();
 
         this.setVisible(true);
     }
@@ -120,12 +125,77 @@ public class Fenetre extends JFrame {
         itemVert.setToolTipText("Changer le fond en VERT");
         itemJaune.setToolTipText("Changer le fond en JAUNE");
         itemBleu.setToolTipText("Changer le fond en BLEU");
-        
+
         itemRectangle.setToolTipText("Dessiner un RECTANGLE");
         itemOvale.setToolTipText("Dessiner un OVALE");
         itemTriangle.setToolTipText("Dessiner un TRIANGLE");
-        
+
         itemLargeur.setToolTipText("Changer la LARGEUR");
         itemHauteur.setToolTipText("Changer la HAUTEUR");
     }
+
+    private void setListeners() {
+        //ajouts des listeners sur les objets
+        itemBlanc.addActionListener(this);
+        itemRouge.addActionListener(this);
+        itemVert.addActionListener(this);
+        itemJaune.addActionListener(this);
+        itemBleu.addActionListener(this);
+
+        boutonBlanc.addActionListener(this);
+        boutonRouge.addActionListener(this);
+        boutonVert.addActionListener(this);
+        boutonJaune.addActionListener(this);
+        boutonBleu.addActionListener(this);
+
+        itemOvale.addActionListener(this);
+        itemRectangle.addActionListener(this);
+        itemTriangle.addActionListener(this);
+
+        itemLargeur.addActionListener(this);
+        itemHauteur.addActionListener(this);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+
+        if (source == itemBlanc || source == boutonBlanc) {
+            container.setBackground(Color.WHITE);
+        }
+        if (source == itemRouge || source == boutonRouge) {
+            container.setBackground(Color.RED);
+        }
+        if (source == itemVert || source == boutonVert) {
+            container.setBackground(Color.GREEN);
+        }
+        if (source == itemJaune || source == boutonJaune) {
+            container.setBackground(Color.YELLOW);
+        }
+        if (source == itemBleu || source == boutonBleu) {
+            container.setBackground(Color.BLUE);
+        }
+
+        if (source == itemOvale) {
+            //draw oval
+        }
+        if (source == itemRectangle) {
+            //draw rect
+        }
+        if (source == itemTriangle) {
+            //draw triangle
+        }
+
+        if (source == itemLargeur) {
+            String newLarg = JOptionPane.showInputDialog(this, "Largeur");
+            //container.setLargeur(Integer.parseInt(ch));
+        }
+        if (source == itemHauteur) {
+            String newHaut = JOptionPane.showInputDialog(this, "Largeur");
+            //container.setLargeur(Integer.parseInt(ch));
+        }
+
+    }
+
 }
